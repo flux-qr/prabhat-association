@@ -56,3 +56,9 @@ async function submitForm(event) {
 
   return false;
 }
+document.getElementById("hiddenAdminFooter").addEventListener("dblclick", () => {
+  const key = prompt("Enter Admin Key:");
+  if (key) {
+    window.location.href = `/admin?key=${key}`;
+  }
+});
