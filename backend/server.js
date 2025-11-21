@@ -84,9 +84,10 @@ app.get("/api/leads", (req, res) => {
 });
 
 // Admin panel page
-app.get("/admin-panel", (req, res) => {
+app.get("/admin", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "admin.html"));
 });
+
 
 // Fallback: serve index.html for any other route (optional)
 app.get("*", (req, res) => {
