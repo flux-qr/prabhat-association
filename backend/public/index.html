@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prabhat Association | Real Estate Indore</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo-box">
+      <div class="logo">PA</div>
+      <div>
+        <h2 class="brand">Prabhat Association</h2>
+        <p class="sub">Real Estate • Indore</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#properties">Properties</a>
+      <a href="#solutions">FulxQR</a>
+      <a href="#enquiry" class="cta-btn">Enquiry</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Premium Real Estate Solutions in <span>Indore</span></h1>
+      <p class="hero-sub">
+        Verified properties, smart QR detail pages, lead tracking and 
+        professional assistance — all in one place.
+      </p>
+
+      <div class="hero-points">
+        <p>✔ RERA Verified</p>
+        <p>✔ Full property details in one QR</p>
+        <p>✔ Follow-up automation system</p>
+      </div>
+
+      <button class="btn-primary" onclick="scrollToSection('enquiry')">
+        Request a Call →
+      </button>
+    </div>
+
+    <div class="hero-glass">
+      <h3>Client Lead Snapshot (Demo)</h3>
+      <p>Daily Leads: <strong>12</strong></p>
+      <p>Follow-ups Pending: <strong>4</strong></p>
+      <p>Properties Listed: <strong>27</strong></p>
+    </div>
+  </section>
+
+  <!-- PROPERTY SECTION -->
+  <section id="properties" class="section">
+    <h2 class="section-title">Featured Property Categories</h2>
+
+    <div class="category-grid">
+      <div class="cat-card glass">
+        <h3>🏠 Residential Flats</h3>
+        <p>1BHK / 2BHK / 3BHK premium homes.</p>
+      </div>
+
+      <div class="cat-card glass">
+        <h3>🏢 Commercial</h3>
+        <p>Shops, offices & showrooms.</p>
+      </div>
+
+      <div class="cat-card glass">
+        <h3>🌳 Plots & Lands</h3>
+        <p>DTCP / RERA approved plots.</p>
+      </div>
+
+      <div class="cat-card glass">
+        <h3>🏡 Luxury Villas</h3>
+        <p>High-end modern villas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULXQR SOLUTIONS -->
+  <section id="solutions" class="section">
+    <h2 class="section-title">FulxQR — Smart Real Estate System</h2>
+
+    <div class="sol-grid">
+      <div class="sol-card glass">
+        <h3>❌ Leads Lost</h3>
+        <p>Dealers busy hone ki wajah se follow-ups miss ho jaate hain.</p>
+
+        <div class="sol-ok">
+          <strong>✔ FulxQR Solution:</strong>
+          <p>Auto lead capture + WhatsApp reminders.</p>
+        </div>
+      </div>
+
+      <div class="sol-card glass">
+        <h3>❌ Property Details Forwarding Time</h3>
+        <p>Baar-baar photos, price aur address bhejna padta hai.</p>
+
+        <div class="sol-ok">
+          <strong>✔ Smart QR:</strong>
+          <p>All property details in one QR page.</p>
+        </div>
+      </div>
+
+      <div class="sol-card glass">
+        <h3>❌ Owners Busy, Can't Show Property</h3>
+        <p>Owners ko marketing ka time nahi hota.</p>
+
+        <div class="sol-ok">
+          <strong>✔ Owner Dashboard:</strong>
+          <p>Who viewed, who is interested — sab dikhega.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRY FORM -->
+  <section id="enquiry" class="section">
+    <h2 class="section-title">Enquiry Form</h2>
+
+    <form class="form glass" onsubmit="return submitForm(event)">
+      <label>Name:</label>
+      <input type="text" id="name" required />
+
+      <label>Phone Number:</label>
+      <input type="tel" id="phone" required />
+
+      <label>Budget (₹):</label>
+      <input type="number" id="budget" required />
+
+      <label>Property Type:</label>
+      <select id="ptype">
+        <option value="Flat">Flat</option>
+        <option value="Plot">Plot</option>
+        <option value="Villa">Villa</option>
+        <option value="Commercial">Commercial</option>
+      </select>
+
+      <label class="consent">
+        <input type="checkbox" id="permission" required />
+        I give permission to Prabhat Association to contact me and save my enquiry.
+      </label>
+
+      <button class="btn-primary" type="submit">Submit →</button>
+    </form>
+
+    <p id="form-status"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

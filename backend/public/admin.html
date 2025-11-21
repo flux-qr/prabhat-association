@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Panel | Prabhat Association Leads</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .admin-wrap {
+      padding: 40px;
+    }
+    .admin-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff80;
+      backdrop-filter: blur(10px);
+    }
+    th, td {
+      padding: 8px 10px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+    th {
+      background: #f2f2f2;
+    }
+    #admin-status {
+      margin-bottom: 10px;
+      color: #c00;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-wrap">
+    <div class="admin-head">
+      <h2>Prabhat Association — Leads Dashboard</h2>
+      <button class="btn-primary" onclick="loadLeads()">Refresh</button>
+    </div>
+
+    <p id="admin-status">Enter admin password to view leads.</p>
+
+    <button class="btn-primary" onclick="askPassword()">Login as Admin</button>
+
+    <div style="margin-top: 20px; overflow-x:auto;">
+      <table id="leads-table" style="display:none;">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Budget</th>
+            <th>Type</th>
+            <th>Consent</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    let ADMIN_KEY = "";
+
+    function askPassword() {
+      const key = prompt("Enter admin password:");
+      if (!key) return;
+      ADMIN_KEY = key;
+      loadLeads();
+    }
+
+    async function loadLeads() {
+      if (!ADMIN_KEY) {
+        document.getElementById("admin-status").textContent =
+          "Please login with admin password.";
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/leads", {
+          headers: { "x-admin-key": ADMIN_KEY }
+        });
+
+        if (res.status === 401) {
+          document.getElementById("admin-status").textContent =
+            "Wrong password. Try again.";
+          document.getElementById("leads-table").style.display = "none";
+          return;
+        }
+
+        const data = await res.json();
+        const tbody = document.querySelector("#leads-table tbody");
+        tbody.innerHTML = "";
+
+        data.forEach((lead) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${lead.id}</td>
+            <td>${lead.name}</td>
+            <td>${lead.phone}</td>
+            <td>₹${lead.budget}</td>
+            <td>${lead.property_type}</td>
+            <td>${lead.consent ? "Yes" : "No"}</td>
+            <td>${lead.created_at}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        document.getElementById("leads-table").style.display = "table";
+        document.getElementById("admin-status").textContent =
+          "Total leads: " + data.length;
+      } catch (err) {
+        console.error(err);
+        document.getElementById("admin-status").textContent =
+          "Error loading leads.";
+      }
+    }
+  </script>
+</body>
+</html>

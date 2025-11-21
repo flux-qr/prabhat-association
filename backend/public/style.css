@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background: #f7f7f7;
+  color: #222;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #ffffffcc;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  background: gold;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+}
+
+.cta-btn {
+  padding: 8px 15px;
+  background: gold;
+  color: black !important;
+  border-radius: 8px;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  padding: 80px 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-text span {
+  color: goldenrod;
+}
+
+.hero-glass {
+  width: 300px;
+  padding: 20px;
+  background: #ffffff70;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px #0001;
+}
+
+/* SECTIONS */
+.section {
+  padding: 60px 40px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* PROPERTY CARDS */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.glass {
+  background: #ffffff80;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px #0001;
+}
+
+/* SOLUTIONS */
+.sol-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.sol-ok {
+  margin-top: 12px;
+  color: green;
+}
+
+/* FORM */
+.form {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input, select {
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+}
+
+.consent {
+  font-size: 14px;
+}
+
+.btn-primary {
+  padding: 10px 18px;
+  background: goldenrod;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #e2ac03;
+}
